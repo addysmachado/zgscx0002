@@ -1,0 +1,149 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form"
+		controllerName="sap.hana.cloud.samples.factsap_app.view.DetalleBandeja" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Detalle Bandeja" showNavButton="true" navButtonPress="handleNavPress">
+		<content>
+			<ObjectHeader
+				id="objectHeader"
+				responsive="true"
+				intro=""
+				title=""	
+				numberUnit=""
+				numberState="Success"
+				number="">
+			</ObjectHeader>
+			<!-- <Panel id="panel"
+				class="sapUiContentPadding"
+				headerText="Detalle Pedido">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<Title text="Detalle del Pedido" />
+						<ToolbarSpacer />
+						<Button icon="sap-icon://complete" press="handleCompletFact" tooltip="Confirmar Pago de Factura" type="Emphasized" />
+					</Toolbar>
+				</headerToolbar>				
+    			<content>
+    				<form:SimpleForm minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout"
+						labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+						columnsL="1" columnsM="1">
+						<form:content>
+							<Label text="Sociedad"/>
+							<Text text="{Bukrs}"/>
+							<Label text="Documento"/>
+							<Text text=""/>
+							<Label text="Referencia"/>
+							<Text text="{Ebeln}"/>
+							<Label text="Radicado"/>
+							<Text text="{Radic}"/>
+							<Label text="Fecha Base"/>
+							<Text text="{Zfbdt}" />
+							<Label text="Fecha Factura"/>
+							<Text text="{Bldat}" />
+							<Label text="Fecha Contab"/>
+							<Text text="{Budat}" />
+							<Label text="División"/>
+							<Text text="{Gsber}" />
+							<Label text="Valor"/>
+							<Text text="{Valor}" />							
+						</form:content>
+					</form:SimpleForm>
+					<Bar>
+						<contentRight>
+							<Button id="editBtn" type="Accept" text="Editar" press="handleEditPress" />
+						</contentRight>
+					</Bar>					
+					
+    			</content>
+			</Panel>-->
+			
+			<Panel id="panelEdit"
+				class="sapUiContentPadding"
+				headerText="Detalle del Pedido">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<Title text="Detalle del Pedido" />
+						<ToolbarSpacer />
+						<Button icon="sap-icon://complete" press="handleCompletFact" tooltip="Confirmar Pago de Factura" type="Emphasized" />
+					</Toolbar>
+				</headerToolbar>				
+    			<content>
+    				<form:SimpleForm minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout"
+						labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+						columnsL="1" columnsM="1">
+						<form:content>
+							<Text id="codLifnr" text="" visible="false"/>
+							<Text id="codSocied" text="" visible="false"/>
+							<Text id="codVbeln" text="" visible="false"/>
+							<Text id="codRadic" text="" visible="false"/>
+							<Label text="Sociedad"/>
+							<Text id="codBukrs" text="{Bukrs}"/>
+							<Label text="Documento"/>
+							<Input value="" width="50%" id="docFactura" />
+							<Label text="Referencia"/>
+							<Text id="codRefer" text=""/>
+							<Label text="Radicado"/>
+							<Text id="codRadicado" text=""/>
+							<Label text="Fecha Base"/>
+							<Text text="{Zfbdt}" />
+							<Label text="Fecha Factura"/>
+							<Text text="{Bldat}" />
+							<Label text="Fecha Contab"/>
+							<Text text="{Budat}" />
+							<Label text="División"/>
+							<Text text="{Gsber}" />
+							<Label text="Valor"/>
+							<Input value="" width="50%" id="vlrFactura" />							
+						</form:content>
+					</form:SimpleForm>
+					<Bar>
+						<contentRight>
+							<Button id="acepBtn" type="Accept" text="Consultar" press="handleConsultarPress" />
+							<!-- <Button id="canclBtn" type="Reject" text="Cancelar" press="handleCancelPress" />-->
+						</contentRight>
+					</Bar>					
+					
+    			</content>
+			</Panel>
+			
+			<Panel id="panelList"
+				class="sapUiContentPadding">
+    			<content>
+
+					<Table id="idTableFact" items="{path: '/d/results', sorter: [{path: 'Radic'}]}" mode="MultiSelect">
+						<columns>
+							<Column >
+								<Text text="Proveedor" />
+							</Column>
+							<Column >
+								<Text text="Nombre" />
+							</Column>
+							<Column >
+								<Text text="Valor" />
+							</Column>					
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+								<ObjectIdentifier
+										title="{Ebeln}"/>
+									<Text
+										text="{Lifnr}" />
+									<ObjectNumber
+										number="{
+													path: 'Ebelp'
+											   }"
+										unit="COP"/>								
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>					
+					
+    			</content>
+			</Panel>			
+
+		</content>		
+	</Page>
+</core:View>

@@ -1,0 +1,75 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="sap.hana.cloud.samples.factsap_app.view.Bandeja" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Gestion de Facturas" >
+		<content>
+			<!-- <IconTabBar
+					id="iconTabBar"
+					select="onQuickFilter"
+					expandable="false"
+					applyContentPadding="false">
+					<items>
+						<IconTabFilter
+							key="all"
+							showAll="true"
+							count="{worklistView>/countAll}"
+							text="{i18n>WorklistFilterProductsAll}"/>
+						<IconTabSeparator/>
+						<IconTabFilter
+							key="inStock"
+							icon="sap-icon://message-success"
+							iconColor="Positive"
+							count="{worklistView>/inStock}"
+							text="{i18n>WorklistFilterInStock}"/>
+						<IconTabFilter
+							key="shortage"
+							icon="sap-icon://message-warning"
+							iconColor="Critical"
+							count="{worklistView>/shortage}"
+							text="{i18n>WorklistFilterShortage}"/>
+						<IconTabFilter
+							key="outOfStock"
+							icon="sap-icon://message-error"
+							iconColor="Negative"
+							count="{worklistView>/outOfStock}"
+							text="{i18n>WorklistFilterOutOfStock}"/>
+					</items>
+				</IconTabBar>		-->
+		
+			<Table id="idProductsTable" items="{path: '/d/results', sorter: [{path: 'Radic'}]}">
+				<columns>
+					<Column width="30%">
+						<Text text="Radicado" />
+					</Column>
+					<Column width="20%">
+						<Text text="Socied" />
+					</Column>
+
+					<Column width="25%">
+						<Text text="Nombre" />
+					</Column>
+					<Column width="25%">
+						<Text text="Valor" />
+					</Column>					
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="handleItemPress">
+						<cells>
+						<ObjectIdentifier
+								title="{Radic}"/>
+							<Text
+								text="{Bukrs}"/>
+							<Text
+								text="{Name1}" />
+							<ObjectNumber
+								number="{
+											path: 'Valor'
+									   }"
+								unit="COP"/>								
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>		
+	
+		</content>
+	</Page>
+</core:View>

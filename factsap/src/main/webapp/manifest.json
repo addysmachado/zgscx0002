@@ -1,0 +1,70 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "sap.hana.cloud.samples",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}	
+	},
+	
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal"]
+  	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "sap.hana.cloud.samples.factsap_app.view.App",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": { }
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.hana.cloud.samples.factsap_app.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "Bandeja",
+				"target": "home"
+			}, {
+				"pattern": "detalle/{factura}",
+				"name": "DetalleBandeja",
+				"target": "detalle"
+			}],
+			"targets": { 
+				"home": {
+					"viewName": "Bandeja",
+					"viewLevel" : 1
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"detalle": {
+					"viewName": "DetalleBandeja",
+					"viewLevel" : 2,
+					"transition": "flip"
+				}
+			}
+		}
+	}
+}

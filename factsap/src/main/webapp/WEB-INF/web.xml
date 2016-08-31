@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<display-name>factsap</display-name>
+<resource-ref>
+<res-ref-name>DevSAP</res-ref-name>
+<res-type>com.sap.core.connectivity.api.http.HttpDestination</res-type>
+</resource-ref>
+
+<servlet>
+	<servlet-name>ServletAdaptor</servlet-name>
+	<servlet-class>com.sun.jersey.server.impl.container.servlet.ServletAdaptor</servlet-class>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ServletAdaptor</servlet-name>
+	<url-pattern>/rs/*</url-pattern>
+</servlet-mapping>
+<welcome-file-list>
+  <welcome-file>index.html</welcome-file>
+  <welcome-file>index.htm</welcome-file>
+  <welcome-file>index.jsp</welcome-file>
+  <welcome-file>default.html</welcome-file>
+  <welcome-file>default.htm</welcome-file>
+  <welcome-file>default.jsp</welcome-file>
+</welcome-file-list>
+<!-- 
+<login-config>
+  <auth-method>FORM</auth-method>
+</login-config>
+<security-constraint>
+  <web-resource-collection>
+    <web-resource-name>Protected</web-resource-name>
+    <url-pattern>/*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>Administrator</role-name>
+    </auth-constraint>
+</security-constraint>
+<security-role>
+  <description>All SAP HANA Cloud Platform users</description>
+  <role-name>Administrator</role-name>
+</security-role>
+-->
+</web-app>
