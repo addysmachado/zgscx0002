@@ -2,7 +2,7 @@
 	"_version": "1.1.0",
 	"sap.app": {
 		"_version": "1.1.0",
-		"id": "sap.hana.cloud.samples",
+		"id": "mapeoCore",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -22,7 +22,7 @@
   	},
 	"sap.ui5": {
 		"_version": "1.1.0",
-		"rootView": "sap.hana.cloud.samples.factsap_app.view.App",
+		"rootView": "mapeoCore.mapeo_app.view.App",
 		"dependencies": {
 			"minUI5Version": "1.30",
 			"libs": {
@@ -33,7 +33,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "sap.hana.cloud.samples.factsap_app.view",
+				"viewPath": "mapeoCore.mapeo_app.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"transition": "slide",

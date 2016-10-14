@@ -27,7 +27,7 @@ import org.apache.http.client.methods.HttpGet;
 
 
 import com.sap.core.connectivity.api.http.HttpDestination;
-
+ 
 @Path("/bandeja")
 public class FactuService {
 
@@ -279,8 +279,6 @@ public class FactuService {
 		
 	}
 
-	
-	
 	@GET
 	@Path("/pedidodet")
     @Produces(MediaType.APPLICATION_JSON)
