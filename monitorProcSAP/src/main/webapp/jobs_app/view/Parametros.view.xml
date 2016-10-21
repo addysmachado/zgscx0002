@@ -1,0 +1,49 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:form="sap.ui.layout.form" controllerName="monitorProcSAP.jobs_app.view.Parametros"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+			<Page id="panelEdit" enableScrolling="true" title="{i18n>TitulosParam}" class="sapUiContentPadding">
+				<content>
+					<form:SimpleForm layout="ResponsiveGridLayout" editable="true" labelSpanL="4" labelSpanM="4" >
+						<form:content>
+							<Label text="Nombre Job" />
+							<Input value="" width="100%" id="idJob" />
+							<Label text="Usuario" />
+							<Input value="" width="100%" id="idUsuario" />
+							<CheckBox text="Previsto" />
+							<CheckBox text="Liberado" />
+							<CheckBox text="Preparado" />
+							<CheckBox text="Activo" />
+							<CheckBox text="Terminado" />
+							<CheckBox text="Cancelado" />
+							<Label text="Fecha Inicial" />
+							<DatePicker
+										id="idFeIni" width="50%"
+										valueFormat="yyyy-MM-dd"
+										class="sapUiSmallMarginBottom"/>
+							<Label text="Fecha Final" />
+							<DatePicker
+										id="idFeFin" width="50%"
+										
+										class="sapUiSmallMarginBottom"/>
+							<Label text="Hora Inicio" />
+							<TimePicker
+										id="idHoIni"
+										width="50%"
+										class="sapUiSmallMarginBottom" />
+							<Label text="Hora Fin" />
+							<TimePicker
+										id="idHoFin"
+										width="50%"
+										class="sapUiSmallMarginBottom" />
+						</form:content>
+					</form:SimpleForm>
+					<Bar>
+						<contentRight>
+							<Button id="acepBtn" type="Accept" text="Consultar"
+								press="handleConsultarPress" />
+						</contentRight>
+					</Bar>
+				</content>
+			</Page>
+
+</core:View>
