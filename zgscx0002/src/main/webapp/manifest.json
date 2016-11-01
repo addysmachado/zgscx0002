@@ -1,0 +1,79 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "zgscx0002",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}	
+	},
+	
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal"]
+  	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "zgscx0002.app.view.App",
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "zgscx0002.i18n.i18n"
+				}
+			}
+		},		
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": { }
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "zgscx0002.app.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound" 
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "Parametros",
+				"target": "home"
+				}, 
+				{
+				"pattern": "detalle/{factura}",
+				"name": "Detalle",
+				"target": "detalle"
+				}],
+			"targets": { 
+				"home": {
+					"viewName": "Parametros",
+					"viewLevel" : 1
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"detalle": {
+					"viewName": "DetalleJobs",
+					"viewLevel" : 2,
+					"transition": "flip"
+				}
+			}
+		}
+	}
+}

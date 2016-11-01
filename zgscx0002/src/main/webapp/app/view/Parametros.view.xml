@@ -1,0 +1,8 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:form="sap.ui.layout.form" controllerName="zgscx0002.app.controller.Parametros"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+			<Page id="panelEdit" enableScrolling="true" title="{i18n>TitulosParam}" class="sapUiContentPadding">
+				
+			</Page>
+
+</core:View>
