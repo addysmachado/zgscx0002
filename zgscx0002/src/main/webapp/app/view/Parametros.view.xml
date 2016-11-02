@@ -29,13 +29,13 @@
 							<l:VerticalLayout class="sapUiContentPadding" width="100%">	
 								<CheckBox id="chcSchedul" text="Previsto" />
 								<CheckBox id="chcReady" text="Liberado" />
-								<CheckBox id ="chc" text="Preparado" />
+								<CheckBox id ="chcPrelim" text="Preparado" />
 							</l:VerticalLayout>	
 							
 							<l:VerticalLayout class="sapUiContentPadding" width="100%">								
-								<CheckBox text="Activo" />
-								<CheckBox text="Terminado" />
-								<CheckBox text="Cancelado" />	
+								<CheckBox id ="chcRunnig" text="Activo" />
+								<CheckBox id ="chcFinish" text="Terminado" />
+								<CheckBox id ="chcAborted" text="Cancelado" />	
 							</l:VerticalLayout>
 																					
 						</form:content>
