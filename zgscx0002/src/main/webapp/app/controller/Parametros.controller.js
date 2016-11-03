@@ -1,10 +1,11 @@
 /* eslint-disable max-params */
 sap.ui.define([
 	// Include the dependencies by their namespace
-	"sap/ui/core/mvc/Controller"
+	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageToast"
 ],
 // the dependencies are passed to this function in the same order
-function(Controller) {
+function(Controller, MessageToast) {
 	"use strict";
 
 	return Controller.extend("zgscx0002.app.controller.Parametros", {
@@ -31,12 +32,39 @@ function(Controller) {
 			
 		},
 		
-		handleItemPress: function (evt) {
+		hdleConsultarPress: function (evt) {
 
-			var app = sap.ui.getCore().byId("gestionMM");  
-	        app.to("idBandeja2");  		
+			var txtJobname  = this.getView().byId("txtJobname");
+			var txtUsername = this.getView().byId("txtUsername");
+			var datFromDate = this.getView().byId("datFromDate");
+			var datToDate 	= this.getView().byId("datToDate");
+			var chcSchedul  = this.getView().byId("chcSchedul");
+			var chcReady  	= this.getView().byId("chcReady");
+			var chcPrelim  	= this.getView().byId("chcPrelim");
+			var chcRunnig  	= this.getView().byId("chcRunnig");
+			var chcFinish  	= this.getView().byId("chcFinish");
+			var chcAborted  = this.getView().byId("chcAborted");
 			
+			//Validamos los datos obligatorios del formulario
+			this.validarCamposObligatorios(txtJobname, txtUsername, datFromDate, datToDate);
+			
+		},
+		
+		
+		validarCamposObligatorios: function (JobName, Username, FromDate, ToDate)
+		{
+			if (JobName.getValue() == '')
+				MessageToast.show("Debe ingresar el nombre del Job");
+			if (Username.getValue() == '')
+				MessageToast.show("Debe ingresar el usuario que ejecutó el Job");
+			if (FromDate.getValue() == '')
+				MessageToast.show("Debe ingresar una fecha de inicio");
+			if (ToDate.getValue() == '')
+				MessageToast.show("Debe ingresar una fecha fin");
 		}
+		
+		
+		
 	});
 });
 

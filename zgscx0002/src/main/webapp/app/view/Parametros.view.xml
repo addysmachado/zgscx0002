@@ -17,12 +17,12 @@
 								<Label text="Fecha Inicial" />
 								<DatePicker
 											id="datFromDate" width="50%"
-											valueFormat="yyyy-MM-dd"
+											valueFormat="yyyyMMdd"
 											class="sapUiSmallMarginBottom"/>
 								<Label text="Fecha Final" />
 								<DatePicker
 											id="datToDate" width="50%"
-											
+											valueFormat="yyyyMMdd"
 											class="sapUiSmallMarginBottom"/>
 							</l:VerticalLayout>							
 							
@@ -44,7 +44,7 @@
 					<Bar>
 						<contentRight>
 							<Button id="acepBtn" type="Emphasized" text="Consultar"
-								press="handleConsultarPress" />
+								press="hdleConsultarPress" />
 						</contentRight>
 					</Bar>						
 									
