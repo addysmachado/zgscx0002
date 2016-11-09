@@ -54,7 +54,7 @@ public class ConsumirODATA {
             
             final String baseURL = destination.getURI().toString();
             
-            String destinationURL = baseURL + "/sap/opu/odata/SAP/ZGSCX0002_SRV/JobSet?$filter=Jobname eq "+jobName+" and Username eq "+userName+"&$format=json";
+            String destinationURL = baseURL + "/sap/opu/odata/SAP/ZGSCX0002_SRV/JobSet?$filter=Jobname%20eq%20'"+jobName+"'%20and%20Username%20eq%20'"+userName+"'&$format=json";
             
             System.out.println(" 0. Ingresa  ");
             System.out.println(" 0. destinationURL  "+destinationURL);

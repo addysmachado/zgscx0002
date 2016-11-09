@@ -46,7 +46,15 @@ function(Controller, MessageToast) {
 			var chcAborted  = this.getView().byId("chcAborted");
 			
 			//Validamos los datos obligatorios del formulario
-			this.validarCamposObligatorios(txtJobname, txtUsername, datFromDate, datToDate);
+			//this.validarCamposObligatorios(txtJobname, txtUsername, datFromDate, datToDate);
+			
+			var oAppModelT   = new sap.ui.model.json.JSONModel();
+			
+			sap.ui.core.BusyIndicator.show(10);
+			jQuery.getJSON("rs/procesos?jobname="+txtJobname.getValue()+"&username="+txtUsername.getValue()+"&fromdate="+datFromDate.getValue()+"&todate="+datToDate.getValue()+"").done(function(mData) {
+				oAppModelT.setData(mData);
+				sap.ui.core.BusyIndicator.hide();
+			});
 			
 		},
 		

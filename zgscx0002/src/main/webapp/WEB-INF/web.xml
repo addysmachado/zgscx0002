@@ -18,4 +18,8 @@
   <welcome-file>default.htm</welcome-file>
   <welcome-file>default.jsp</welcome-file>
 </welcome-file-list>
+<resource-ref>
+<res-ref-name>DevSAP</res-ref-name>
+<res-type>com.sap.core.connectivity.api.http.HttpDestination</res-type>
+</resource-ref>
 </web-app>
