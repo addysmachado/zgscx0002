@@ -42,7 +42,8 @@
 			<semantic:DetailPage
 					title="Detalle del Job"
 					floatingFooter="true">
-			           <ObjectHeader
+					
+			           <ObjectHeader id="objHeader"
 							title="{Jobname}"
 							number="{Jobcount}"
 							numberUnit="ORDEN"
@@ -50,7 +51,32 @@
 						<attributes>
 							<ObjectAttribute title="Clase Asociada" text="{FromTime}" id="Cdfuente" />
 						</attributes>
-			           </ObjectHeader>					
+			           </ObjectHeader>
+			           
+						<IconTabBar
+								id="idIconTabBar"
+								expanded="false"
+								select="handleIconTabBarSelect"
+								class="sapUiResponsiveContentPadding">
+								<items>
+									<IconTabFilter
+										icon="sap-icon://begin"
+										count="{/d/results/Jobcount}"
+										text="Log"
+										key="Ok"
+										id="IconTabDetalle" >           
+									<Panel id="panelList" class="sapUiContentPadding">		
+										<Toolbar>
+											<ToolbarSpacer/>
+											<SearchField liveChange="onSearch" width="40%" />
+										</Toolbar>			
+						    			<content>
+				
+						    			</content>
+									</Panel> 
+									</IconTabFilter>      
+								</items>
+							</IconTabBar>
 					
 				<semantic:positiveAction>
 					<semantic:PositiveAction text="Positive" press="onSemanticButtonPress"/>

@@ -28,8 +28,21 @@ function(Controller, MessageToast) {
 			oRouter.navTo("Parametros",  null, null);
 			//this.getOwnerComponent().getTargets().display("Parametros");
 			
-		}
-		
+		},
+
+		onListItemPress: function (evt) {
+
+			// Obtenemos el item seleccionado por el usuario
+			var myContext = evt.getSource().getBindingContext();
+			var myObject = evt.getSource().getBindingContext().getObject();
+			var oPath = myContext.getPath();
+			
+			var objHeader  = this.getView().byId("objHeader");
+			
+			if (objHeader)
+				objHeader.bindElement(oPath);
+			
+		}		
 		
 	});
 });
