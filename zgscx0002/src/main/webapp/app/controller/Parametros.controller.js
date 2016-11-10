@@ -56,6 +56,13 @@ function(Controller, MessageToast) {
 				sap.ui.core.BusyIndicator.hide();
 			});
 			
+			
+			//if(oAppModelT.getData())
+				sap.ui.getCore().setModel(oAppModelT);
+				
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("Detalle",  null, null);				
+			
 		},
 		
 		

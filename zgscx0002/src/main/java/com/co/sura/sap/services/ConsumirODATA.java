@@ -45,7 +45,7 @@ public class ConsumirODATA {
         try{			
 
             // Get HTTP destination
-            Context ctx = new InitialContext();
+            Context ctx = new InitialContext(); 
             
             HttpDestination destination = (HttpDestination) ctx.lookup("java:comp/env/" +  "DevSAP");        	
 

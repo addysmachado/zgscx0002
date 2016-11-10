@@ -55,7 +55,7 @@
 				"target": "home"
 				}, 
 				{
-				"pattern": "detalle/{factura}",
+				"pattern": "detalle",
 				"name": "Detalle",
 				"target": "detalle"
 				}],
@@ -69,7 +69,7 @@
 					"transition": "show"
 				},
 				"detalle": {
-					"viewName": "DetalleJobs",
+					"viewName": "Jobs",
 					"viewLevel" : 2,
 					"transition": "flip"
 				}
