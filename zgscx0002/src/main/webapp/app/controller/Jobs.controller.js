@@ -14,7 +14,7 @@ function(Controller, MessageToast) {
 		// the view instance has been created 
 		onInit: function() { 
 
-			var oAppModelT = sap.ui.getCore().getModel(oAppModelT);
+			var oAppModelT = sap.ui.getCore().getModel();
 			this.getView().setModel(oAppModelT); 
 			//var tblJobs  = this.getView().byId("idJobsTable");
 			
@@ -38,9 +38,24 @@ function(Controller, MessageToast) {
 			var oPath = myContext.getPath();
 			
 			var objHeader  = this.getView().byId("objHeader");
+			var objTable   = this.getView().byId("idTableDet");
 			
 			if (objHeader)
 				objHeader.bindElement(oPath);
+			
+			var oAppModeli   = sap.ui.getCore().getModel();
+			this.getView().setModel(oAppModeli);
+			var oAppModelLog = new sap.ui.model.json.JSONModel();
+			
+			var txtJobname  = oAppModeli.getProperty(oPath +"/Jobname");
+			var txtJobcount = oAppModeli.getProperty(oPath +"/Jobcount");
+
+			jQuery.getJSON("rs/procesos/log?jobname="+txtJobname+"&jobcount="+txtJobcount).done(function(mData) {
+				oAppModelLog.setData(mData);
+			});			
+			
+			
+			objTable.setModel(oAppModelLog);
 			
 		}		
 		

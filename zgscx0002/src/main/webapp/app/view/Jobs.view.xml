@@ -1,136 +1,153 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
-		controllerName="zgscx0002.app.controller.Jobs" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="Jobs " level="H2" showNavButton="true" navButtonPress="pressNavTab">
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:semantic="sap.m.semantic" controllerName="zgscx0002.app.controller.Jobs"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Jobs " level="H2" showNavButton="true"
+		navButtonPress="pressNavTab">
 		<content>
-	
-	
-		
-	<SplitContainer>
-		<masterPages>
-			<semantic:MasterPage title="Jobs"
-								 floatingFooter="true">
-				<semantic:sort>
-					<semantic:SortSelect change="onSemanticSelectChange"
-										 items="{/d/results}">
-						<core:Item key="{type}" text="{Jobname}"/>
-					</semantic:SortSelect>
-				</semantic:sort>
-					<List items="{path: '/d/results'}" >
-						<items>
-							<ObjectListItem title="{Jobname}" press="onListItemPress" type="Active" number="{Jobcount}">
-								<attributes>
-									<ObjectAttribute text="{Username}" />
-								</attributes>
-							</ObjectListItem>					
-						</items>
-					</List>					
-				<semantic:filter>
-					<semantic:FilterAction press="onSemanticButtonPress"/>
-				</semantic:filter>
-				<semantic:group>
-					<semantic:GroupAction press="onSemanticButtonPress"/>
-				</semantic:group>
-				<semantic:addAction>
-					<semantic:AddAction press="onSemanticButtonPress"/>
-				</semantic:addAction>
-				<semantic:multiSelectAction>
-					<semantic:MultiSelectAction press="onMultiSelectPress"/>
-				</semantic:multiSelectAction>
-			</semantic:MasterPage>
-		</masterPages>
-		<detailPages>
-			<semantic:DetailPage
-					title="Detalle del Job"
-					floatingFooter="true">
-					
-			           <ObjectHeader id="objHeader"
-							title="{Jobname}"
-							number="{Jobcount}"
-							numberUnit="ORDEN"
-							intro="{ToTime}" >
-						<attributes>
-							<ObjectAttribute title="Clase Asociada" text="{FromTime}" id="Cdfuente" />
-						</attributes>
-			           </ObjectHeader>
-			           
-						<IconTabBar
-								id="idIconTabBar"
-								expanded="false"
-								select="handleIconTabBarSelect"
-								class="sapUiResponsiveContentPadding">
-								<items>
-									<IconTabFilter
-										icon="sap-icon://begin"
-										count="{/d/results/Jobcount}"
-										text="Log"
-										key="Ok"
-										id="IconTabDetalle" >           
-									<Panel id="panelList" class="sapUiContentPadding">		
+
+
+
+			<SplitContainer>
+				<masterPages>
+					<semantic:MasterPage title="Jobs"
+						floatingFooter="true">
+						<semantic:sort>
+							<semantic:SortSelect change="onSemanticSelectChange"
+								items="{/d/results}">
+								<core:Item key="{type}" text="{Jobname}" />
+							</semantic:SortSelect>
+						</semantic:sort>
+						<List items="{path: '/d/results'}">
+							<items>
+								<ObjectListItem title="{Jobname}" press="onListItemPress"
+									type="Active" number="{Jobcount}">
+									<attributes>
+										<ObjectAttribute text="{Username}" />
+									</attributes>
+								</ObjectListItem>
+							</items>
+						</List>
+						<semantic:filter>
+							<semantic:FilterAction press="onSemanticButtonPress" />
+						</semantic:filter>
+						<semantic:group>
+							<semantic:GroupAction press="onSemanticButtonPress" />
+						</semantic:group>
+						<semantic:addAction>
+							<semantic:AddAction press="onSemanticButtonPress" />
+						</semantic:addAction>
+						<semantic:multiSelectAction>
+							<semantic:MultiSelectAction press="onMultiSelectPress" />
+						</semantic:multiSelectAction>
+					</semantic:MasterPage>
+				</masterPages>
+				<detailPages>
+					<semantic:DetailPage title="Detalle del Job"
+						floatingFooter="true">
+
+						<ObjectHeader id="objHeader" title="{Jobname}"
+							number="{Jobcount}" numberUnit="ORDEN" intro="{ToTime}">
+							<attributes>
+								<ObjectAttribute title="Clase Asociada" text="{FromTime}"
+									id="Cdfuente" />
+							</attributes>
+						</ObjectHeader>
+
+						<IconTabBar id="idIconTabBar" expanded="false"
+							select="handleIconTabBarSelect" class="sapUiResponsiveContentPadding">
+							<items>
+								<IconTabFilter icon="sap-icon://begin" count="15"
+									text="Log" key="Ok" id="IconTabDetalle">
+									<Panel id="panelList" class="sapUiContentPadding">
 										<Toolbar>
-											<ToolbarSpacer/>
+											<ToolbarSpacer />
 											<SearchField liveChange="onSearch" width="40%" />
-										</Toolbar>			
-						    			<content>
-				
-						    			</content>
-									</Panel> 
-									</IconTabFilter>      
-								</items>
-							</IconTabBar>
-					
-				<semantic:positiveAction>
-					<semantic:PositiveAction text="Positive" press="onSemanticButtonPress"/>
-				</semantic:positiveAction>
-				<semantic:negativeAction>
-					<semantic:NegativeAction text="Negative" press="onSemanticButtonPress"/>
-				</semantic:negativeAction>
-				<semantic:forwardAction>
-					<semantic:ForwardAction press="onSemanticButtonPress"/>
-				</semantic:forwardAction>
-				<semantic:flagAction>
-					<semantic:FlagAction press="onSemanticButtonPress"/>
-				</semantic:flagAction>
-				<semantic:favoriteAction>
-					<semantic:FavoriteAction press="onSemanticButtonPress"/>
-				</semantic:favoriteAction>
-				<semantic:sendEmailAction>
-					<semantic:SendEmailAction press="onSemanticButtonPress"/>
-				</semantic:sendEmailAction>
-				<semantic:sendMessageAction>
-					<semantic:SendMessageAction press="onSemanticButtonPress"/>
-				</semantic:sendMessageAction>
-				<semantic:discussInJamAction>
-					<semantic:DiscussInJamAction press="onSemanticButtonPress"/>
-				</semantic:discussInJamAction>
-				<semantic:shareInJamAction>
-					<semantic:ShareInJamAction press="onSemanticButtonPress"/>
-				</semantic:shareInJamAction>
-				<semantic:printAction>
-					<semantic:PrintAction press="onSemanticButtonPress"/>
-				</semantic:printAction>
-				<semantic:messagesIndicator>
-					<semantic:MessagesIndicator press="onMessagesButtonPress"/>
-				</semantic:messagesIndicator>
-				<semantic:pagingAction>
-					<PagingButton count="5" positionChange="onPositionChange"/>
-				</semantic:pagingAction>
- 
-				<semantic:customFooterContent>
-					<OverflowToolbarButton icon="sap-icon://settings" text="Settings" press="onPress"/>
-					<OverflowToolbarButton icon="sap-icon://video" text="Video" press="onPress"/>
-				</semantic:customFooterContent>
- 
-				<semantic:customShareMenuContent>
-					<Button text="CustomShareBtn1" icon="sap-icon://color-fill" press="onPress"/>
-					<Button text="CustomShareBtn2" icon="sap-icon://crop" press="onPress"/>
-				</semantic:customShareMenuContent>
- 
-			</semantic:DetailPage>
- 
-		</detailPages>
- 
-	</SplitContainer>		
-		
+										</Toolbar>
+										<content>
+											<Table id="idTableDet" items="{path: '/d/results'}" >
+												<columns>
+													<Column>
+														<Text text="Tiempo Inicio" />
+													</Column>
+													<Column>
+														<Text text="Texto" />
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<ObjectIdentifier title="{Entertime}" />
+															<Text text="{Text}" />
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+
+										</content>
+									</Panel>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+
+						<semantic:positiveAction>
+							<semantic:PositiveAction text="Positive"
+								press="onSemanticButtonPress" />
+						</semantic:positiveAction>
+						<semantic:negativeAction>
+							<semantic:NegativeAction text="Negative"
+								press="onSemanticButtonPress" />
+						</semantic:negativeAction>
+						<semantic:forwardAction>
+							<semantic:ForwardAction press="onSemanticButtonPress" />
+						</semantic:forwardAction>
+						<semantic:flagAction>
+							<semantic:FlagAction press="onSemanticButtonPress" />
+						</semantic:flagAction>
+						<semantic:favoriteAction>
+							<semantic:FavoriteAction press="onSemanticButtonPress" />
+						</semantic:favoriteAction>
+						<semantic:sendEmailAction>
+							<semantic:SendEmailAction press="onSemanticButtonPress" />
+						</semantic:sendEmailAction>
+						<semantic:sendMessageAction>
+							<semantic:SendMessageAction press="onSemanticButtonPress" />
+						</semantic:sendMessageAction>
+						<semantic:discussInJamAction>
+							<semantic:DiscussInJamAction press="onSemanticButtonPress" />
+						</semantic:discussInJamAction>
+						<semantic:shareInJamAction>
+							<semantic:ShareInJamAction press="onSemanticButtonPress" />
+						</semantic:shareInJamAction>
+						<semantic:printAction>
+							<semantic:PrintAction press="onSemanticButtonPress" />
+						</semantic:printAction>
+						<semantic:messagesIndicator>
+							<semantic:MessagesIndicator press="onMessagesButtonPress" />
+						</semantic:messagesIndicator>
+						<semantic:pagingAction>
+							<PagingButton count="5" positionChange="onPositionChange" />
+						</semantic:pagingAction>
+
+						<semantic:customFooterContent>
+							<OverflowToolbarButton icon="sap-icon://settings"
+								text="Settings" press="onPress" />
+							<OverflowToolbarButton icon="sap-icon://video"
+								text="Video" press="onPress" />
+						</semantic:customFooterContent>
+
+						<semantic:customShareMenuContent>
+							<Button text="CustomShareBtn1" icon="sap-icon://color-fill"
+								press="onPress" />
+							<Button text="CustomShareBtn2" icon="sap-icon://crop"
+								press="onPress" />
+						</semantic:customShareMenuContent>
+
+					</semantic:DetailPage>
+
+				</detailPages>
+
+			</SplitContainer>
+
 		</content>
 	</Page>
 </core:View>
